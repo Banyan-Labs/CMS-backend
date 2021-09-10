@@ -1,0 +1,17 @@
+{
+  "name": "CMS-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Banyan-Labs/CMS-backend.git",
+  "author": "Jessica Dickerson <jdickerson@banyanlabs.io>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  }
+}
