@@ -15,6 +15,27 @@ router.get('/', async (req, res) => {
 // GET ONE CASE STUDY
 
 // CREATE A CASE STUDY
+router.post('/', async (req, res) => {
+    const caseStudyPost = new CaseStudy({
+        name: req.body.name,
+        image: req.body.image,
+        description: req.body.description,
+        findings: req.body.findings,
+        discussion: req.body.discussion,
+        conclusion: req.body.conclusion,
+        recommendations: req.body.recommendations,
+        implementation: req.body.implementation,
+        references: req.body.references,
+        appendices: req.body.appendices
+    })
+
+    try {
+        const newCaseStudy = await caseStudyPost.save()
+        res.status(201).json(newCaseStudy)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+})
 
 // UPDATE A CASE STUDY
 
