@@ -21,6 +21,19 @@ router.get('/', async (req, res) => {
 // DELETE A CASE STUDY
 
 // MIDDLEWARE TO FIND ONE CASE STUDY BY ID
+async function getCaseStudy(req, res, next) {
+    let caseStudy
+    try {
+        caseStudy = await CaseStudy.findById(req.params.id)
+        if (caseStudy == null) {
+            return res.status(404).json({ message: 'Cannot find case study'})
+    }
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
 
+    res.caseStudy = caseStudy
+    next()
+};
 
 module.exports = router
