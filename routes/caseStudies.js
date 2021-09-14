@@ -3,6 +3,14 @@ const router = express.Router()
 const CaseStudy = require('../models/caseStudy')
 
 // GET ALL CASE STUDIES
+router.get('/', async (req, res) => {
+    try {
+        const allCaseStudies = await CaseStudy.find()
+        res.json(allCaseStudies)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
 
 // GET ONE CASE STUDY
 
