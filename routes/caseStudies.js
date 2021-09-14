@@ -7,7 +7,6 @@ router.get('/', async (req, res) => {
     try {
         const allCaseStudies = await CaseStudy.find()
         res.json(allCaseStudies)
-        console.log("Stephanie")
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
