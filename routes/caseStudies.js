@@ -13,6 +13,9 @@ router.get('/', async (req, res) => {
 })
 
 // GET ONE CASE STUDY
+router.get('/:id', getCaseStudy, (req, res) => {
+    res.json(res.caseStudy)
+});
 
 // CREATE A CASE STUDY
 router.post('/', async (req, res) => {
