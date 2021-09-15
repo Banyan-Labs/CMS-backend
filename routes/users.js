@@ -54,6 +54,14 @@ router.patch('/:id', getUsers, async (req, res) => {
 })
 
 // Delete a user
+router.delete('/:id', getUsers, async (req, res) => {
+    try {
+        await res.users.remove()
+        res.json({ message: 'Deleted User' })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
 
 // Middleware
 async function getUsers(req, res, next) {
