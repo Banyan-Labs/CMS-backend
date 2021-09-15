@@ -43,6 +43,14 @@ router.post('/', async (req, res) => {
 // UPDATE A CASE STUDY
 
 // DELETE A CASE STUDY
+router.delete('/:id', getCaseStudy, async (req, res) => {
+    try {
+        await res.caseStudy.remove()
+        res.json({ message: 'Deleted case study' })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
 
 // MIDDLEWARE TO FIND ONE CASE STUDY BY ID
 async function getCaseStudy(req, res, next) {
