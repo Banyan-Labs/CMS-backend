@@ -35,6 +35,23 @@ router.post('/', async (req, res) => {
 
 
 // Patch a user
+router.patch('/:id', getUsers, async (req, res) => {
+    if(req.body.username != null) {
+        res.users.username = req.body.username
+    }
+    if(req.body.password != null) {
+        res.users.password = req.body.password
+    }
+    if(req.body.email != null) {
+        res.users.email = req.body.email
+    }
+    try {
+        const updatedUsers = await res.users.save()
+        res.json(updatedUsers)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+})
 
 // Delete a user
 
