@@ -38,7 +38,44 @@ router.post('/', async (req, res) => {
 })
 
 // UPDATE A CASE STUDY
-
+router.patch('/:id', getCaseStudy, async (req, res) => {
+    if(req.body.name != null) {
+        res.caseStudy.name = req.body.name
+    }
+    if(req.body.image != null) {
+        res.caseStudy.image = req.body.image
+    }
+    if(req.body.description != null) {
+        res.caseStudy.description = req.body.description
+    }
+    if(req.body.findings != null) {
+        res.caseStudy.findings = req.body.findings
+    }
+    if(req.body.discussion != null) {
+        res.caseStudy.discussion = req.body.discussion
+    }
+    if(req.body.conclusion != null) {
+        res.caseStudy.conclusion = req.body.conclusion
+    }
+    if(req.body.recommendations != null) {
+        res.caseStudy.recommendations = req.body.recommendations
+    }
+    if(req.body.implementation != null) {
+        res.caseStudy.implementation = req.body.implementation
+    }
+    if(req.body.references != null) {
+        res.caseStudy.references = req.body.references
+    }
+    if(req.body.appendices != null) {
+        res.caseStudy.appendices = req.body.appendices
+    }
+    try {
+        const updatedCaseStudy = await res.caseStudy.save()
+        res.json(updatedCaseStudy)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+})
 // DELETE A CASE STUDY
 
 // MIDDLEWARE TO FIND ONE CASE STUDY BY ID
