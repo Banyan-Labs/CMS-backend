@@ -37,6 +37,14 @@ router.post('/', async (req, res) => {
 // Patch a user
 
 // Delete a user
+router.delete('/:id', getUsers, async (req, res) => {
+    try {
+        await res.users.remove()
+        res.json({ message: 'Deleted User' })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
 
 // Middleware
 async function getUsers(req, res, next) {
