@@ -86,6 +86,8 @@ portal access at url: [`localhost:8080`](http://127.0.0.1:8080/)
 
 ## Product Owner
 
+- Jessica Dickerson
+
 ### Banyan Labs
 
 [![Banyan Labs Logo](https://banyanlabs.io/static/Logo-ba022e637f1be3fe28d39b0560ae901b.png)](https://banyanlabs.io/)
